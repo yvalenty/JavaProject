@@ -1,9 +1,14 @@
+package com.gamemaschine;
+
 import java.lang.*;
 
-class Timeout implements Runnable  {
+public class Timeout implements Runnable  {
     public Timeout(Gracz g, GraczView gv){
         stimeout=g.allowedTime;
         gs=gv;
+    }
+    public int ret(){
+        return stimeout;
     }
     GraczView gs;
     int minutes;

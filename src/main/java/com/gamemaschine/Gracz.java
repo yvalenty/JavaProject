@@ -1,7 +1,9 @@
+package com.gamemaschine;
+
 public abstract class Gracz implements Lose, Win {
     String name = "bez imienia";
     String surname = "bez nazwiska";
-    int allowedTime = 0;
+    public int allowedTime = 0;
     int select1=0, select2=0;
     int selectgc1, selectgc2, gcmax, gcmin, gSelect, freecell, ret, playedGames, selectedWinCombo;
     public boolean endGame, moveMaked;

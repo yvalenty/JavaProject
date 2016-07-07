@@ -1,3 +1,5 @@
+package com.gamemaschine;
+
 import java.awt.event.*;
 
 public class MainFrameController {

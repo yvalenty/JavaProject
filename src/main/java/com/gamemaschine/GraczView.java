@@ -1,3 +1,5 @@
+package com.gamemaschine;
+
 import javax.swing.*;
 
 public abstract class GraczView {

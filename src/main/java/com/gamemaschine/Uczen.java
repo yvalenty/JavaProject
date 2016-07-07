@@ -1,3 +1,5 @@
+package com.gamemaschine;
+
 public class Uczen extends Przedszkolak {
     
     public Uczen(String s, String ss) {

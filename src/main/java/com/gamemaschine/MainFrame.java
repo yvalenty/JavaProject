@@ -1,3 +1,5 @@
+package com.gamemaschine;
+
 public class MainFrame {
     private int game=0, gamer;
     private double gcharge;

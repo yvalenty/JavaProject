@@ -1,3 +1,5 @@
+package com.gamemaschine;
+
 public class Student extends Uczen {
     
     public Student(String s, String ss) {

@@ -4,13 +4,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>WG</groupId>
-    <artifactId>TS</artifactId>
+    <groupId>YV</groupId>
+    <artifactId>GameMachine</artifactId>
     <packaging>jar</packaging>
     <version>1.0</version>
     <name>projectMy</name>
     <url>http://maven.apache.org</url>
-
+    <dependencies>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+    </dependency>
+    </dependencies>
     <properties>
         <jdk.version>1.8</jdk.version>
     </properties>
@@ -39,7 +46,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Main</mainClass>
+                            <mainClass>com.gamemaschine.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

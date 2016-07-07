@@ -1,3 +1,5 @@
+package com.gamemaschine;
+
 import java.util.Random;
 
 public class Przedszkolak extends Gracz {

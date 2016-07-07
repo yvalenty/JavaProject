@@ -13,9 +13,9 @@ public class UczenView extends PrzedszkolakView {
         mpan.add(pan1);
         mpan.add(pan2);
         mpan.add(pan3);
-        imageIcon = new ImageIcon(new ImageIcon("src/main/resources/knb1.jpg").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
-        imageIcon2 = new ImageIcon(new ImageIcon("src/main/resources/knb2.jpg").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
-        imageIcon3 = new ImageIcon(new ImageIcon("src/main/resources/knb3.jpg").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+        imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("/resources/knb1.jpg")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+        imageIcon2 = new ImageIcon(new ImageIcon(getClass().getResource("/resources/knb2.jpg")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+        imageIcon3 = new ImageIcon(new ImageIcon(getClass().getResource("/resources/knb3.jpg")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
         button1=new JButton(imageIcon);
         button1.setOpaque(false);
         button1.setContentAreaFilled(false);

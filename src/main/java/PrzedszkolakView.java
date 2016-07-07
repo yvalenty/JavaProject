@@ -9,8 +9,8 @@ public class PrzedszkolakView extends GraczView {
     JPanel mainPanel;
 
     public void gameCoin(){
-        imageIcon = new ImageIcon(new ImageIcon("src/main/resources/u.jpg").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
-        imageIcon2 = new ImageIcon(new ImageIcon("src/main/resources/u2.jpg").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+        imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("/resources/u.jpg")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+        imageIcon2 = new ImageIcon(new ImageIcon(getClass().getResource("/resources/u2.jpg")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
         picLabel = new JLabel();
         picLabel2 = new JLabel();
         button1=new JButton("Orzeł");

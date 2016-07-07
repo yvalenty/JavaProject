@@ -1,6 +1,6 @@
 import javax.sound.sampled.*;
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 public class Singleton {
     private static Singleton ourInstance = new Singleton();
@@ -12,10 +12,9 @@ public class Singleton {
     private Singleton() {
     }
 
-    protected static void playMusic( ) throws IOException {
+    protected void playMusic() throws IOException {
         try {
-
-            File soundFile = new File("src/main/resources/background.wav");
+            URL soundFile = this.getClass().getResource("/resources/background.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
             Clip clip = AudioSystem.getClip();
             clip.open(ais);

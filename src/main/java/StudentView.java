@@ -11,8 +11,8 @@ public class StudentView extends UczenView{
         mpan.add(pan1);
         mpan.add(pan2);
         mpan.add(pan3);
-        imageIcon = new ImageIcon(new ImageIcon("src/main/resources/d.png").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
-        imageIcon2 = new ImageIcon(new ImageIcon("src/main/resources/r.png").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+        imageIcon = new ImageIcon(new ImageIcon(getClass().getResource("/resources/d.png")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+        imageIcon2 = new ImageIcon(new ImageIcon(getClass().getResource("/resources/r.jpg")).getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
         button1=new JButton(imageIcon);
         button1.setOpaque(false);
         button1.setContentAreaFilled(false);

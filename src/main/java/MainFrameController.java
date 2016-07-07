@@ -163,6 +163,8 @@ public class MainFrameController {
 
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == view.selector1) {
+                view.g1.setSelected(true);
+                model.setGame(0);
                 if (view.selector1.getSelectedIndex() == 0) {
                     model.setGamer(0);
                     view.g2.setEnabled(false);

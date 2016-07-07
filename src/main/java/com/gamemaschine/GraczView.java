@@ -25,7 +25,7 @@ public abstract class GraczView {
     public void gameDeer(){}
 
     public abstract void showWinner(String n);
-    /*public void showResults(){
+    public void showResults(int[][] gcrecords, int repeats){
         JTextArea textArea = new JTextArea(6, 18);
         textArea.setText("-----------Wyniki-----------\n" + "Gracz1                Gracz2\n");
         textArea.setText(textArea.getText()+ "-------------------------------\n");
@@ -35,7 +35,6 @@ public abstract class GraczView {
         for (int i=0; i<repeats; i++){
             for (int k=0; k<2; k++){
                 textArea.setText(textArea.getText()+ "    " + gcrecords[i][k] + "                        ");
-                gcrecords[repeats][k]+= gcrecords[i][k];
             }
             textArea.setText(textArea.getText()+ "\n");
         }
@@ -44,5 +43,4 @@ public abstract class GraczView {
 
         JOptionPane.showMessageDialog(gameWindow, scrollPane);
     }
-    */
 }

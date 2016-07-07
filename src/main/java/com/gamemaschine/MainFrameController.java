@@ -14,6 +14,7 @@ public class MainFrameController {
         this.view=view;
     }
 
+    //fabryka modeli
     public Gracz fabryka(int n){
         Gracz g=null;
         if(n==0){
@@ -28,6 +29,7 @@ public class MainFrameController {
         return g;
     }
 
+    //fabryka widoków
     public GraczView fabrykaWidokow(int n){
         GraczView g=null;
         if(n==0){
@@ -42,6 +44,7 @@ public class MainFrameController {
         return g;
     }
 
+    //fabryka kontrolerów
     public GraczController fabrykaKontolerow(int n, Gracz gm, GraczView gv){
         GraczController g=null;
         if(n==0){
@@ -55,6 +58,7 @@ public class MainFrameController {
         }
         return g;
     }
+
 
     public void MainView(){
         gSelect=new Listener();
@@ -81,6 +85,7 @@ public class MainFrameController {
         view.g3.addActionListener(gSelect);
         view.g4.addActionListener(gSelect);
         view.selector1.addActionListener(gSelect);
+        //Exit pressed
         view.exi.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
@@ -134,6 +139,7 @@ public class MainFrameController {
                     gamerview.gameWindow.add(view.pan4);
                     view.pan4.setVisible(true);
                     view.ex.addActionListener(new ActionListener() {
+                        //Back pressed
                         public void actionPerformed(ActionEvent e) {
                             gamerview.gameWindow.setVisible(false);
                             view.pan4.setVisible(false);

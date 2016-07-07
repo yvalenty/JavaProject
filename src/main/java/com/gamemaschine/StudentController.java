@@ -61,6 +61,7 @@ public class StudentController extends UczenController {
                     view.button1.setEnabled(false);
                     view.button2.setEnabled(false);
                     view.showWinner(model.takeWinner());
+                    view.showResults(model.gcrecords, model.repeats);
                 }
 
             }

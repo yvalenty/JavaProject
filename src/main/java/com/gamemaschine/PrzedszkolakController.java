@@ -52,6 +52,7 @@ public class PrzedszkolakController extends GraczController {
                     view.button1.setEnabled(false);
                     view.button2.setEnabled(false);
                     view.showWinner(model.takeWinner());
+                    view.showResults(model.gcrecords, model.repeats);
                 }
             }
         };
@@ -151,6 +152,7 @@ public class PrzedszkolakController extends GraczController {
         }
         if (model.playedGames==model.repeats){
             view.showWinner(model.takeWinner());
+            view.showResults(model.gcrecords, model.repeats);
         }
     }
 

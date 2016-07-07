@@ -66,6 +66,7 @@ public class UczenController extends PrzedszkolakController {
                     view.button2.setEnabled(false);
                     view.button3.setEnabled(false);
                     view.showWinner(model.takeWinner());
+                    view.showResults(model.gcrecords, model.repeats);
                 }
             }
         };

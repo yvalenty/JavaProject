@@ -19,7 +19,6 @@ public abstract class Gracz implements Lose, Win {
 
     public String takeWinner(){
         String result;
-        //showResults();
         for(int i=0; i<repeats;i++){
             gcrecords[repeats][0]+=gcrecords[i][0];
             gcrecords[repeats][1]+=gcrecords[i][1];

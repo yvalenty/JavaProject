@@ -63,7 +63,6 @@ public class StudentController extends UczenController {
                     view.showWinner(model.takeWinner());
                     view.showResults(model.gcrecords, model.repeats);
                 }
-
             }
         };
         view.button1.addActionListener(bListner);

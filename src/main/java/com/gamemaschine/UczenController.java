@@ -74,5 +74,4 @@ public class UczenController extends PrzedszkolakController {
         view.button2.addActionListener(bListner);
         view.button3.addActionListener(bListner);
     }
-
 }

@@ -15,7 +15,6 @@ public abstract class Gracz implements Lose, Win {
     double payment;
     int repeats;
     int[][] gcrecords;
-    public abstract String getTyp();
 
     public String takeWinner(){
         String result;
@@ -34,16 +33,11 @@ public abstract class Gracz implements Lose, Win {
         return result;
   }
 
+    public abstract String getTyp();
     public abstract void setResultsTable();
-
-
     public abstract void gameXO();
-
     public abstract int rund(int gcmin, int gcmax);
-
     public abstract void compMove();
-
     public void gameKNP(){}
-
     public void gameDeer(){}
 }

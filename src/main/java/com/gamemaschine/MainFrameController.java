@@ -59,7 +59,6 @@ public class MainFrameController {
         return g;
     }
 
-
     public void MainView(){
         gSelect=new Listener();
         wListen=new WindowAdapter() {
@@ -72,7 +71,6 @@ public class MainFrameController {
                 view.frame.setEnabled(true);
                 view.frame.setVisible(true);
                 thread.interrupt();
-
             }
             @Override
             public void windowOpened(WindowEvent e) {
@@ -148,7 +146,6 @@ public class MainFrameController {
                             thread.interrupt();
                         }
                     });
-
                 }
                 catch (Exception err){
                     view.startInfo("Wprowadź poprawne dane");

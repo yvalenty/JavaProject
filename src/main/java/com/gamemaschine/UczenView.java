@@ -36,7 +36,6 @@ public class UczenView extends PrzedszkolakView {
         pan1.add(button1);
         pan2.add(button2);
         pan3.add(button3);
-
         gameWindow.setBackground(Color.white);
         mpan.setBackground(Color.white);
         pan1.setBackground(Color.white);

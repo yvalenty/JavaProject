@@ -5,9 +5,10 @@ public class XORundTest {
     @Test
     public void rundTest() throws Exception{
         Przedszkolak p=new Przedszkolak("s","a");
-        for(int k=0;k<8;k++){
+        int k;
+        for(int i=0;i<100;i++){
             k=p.rund(0,7);
-            assertTrue(k>-1 && k<8);
+            assertTrue(k>=0 && k<=7);
         }
     }
 }

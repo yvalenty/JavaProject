@@ -7,7 +7,7 @@ public class MainFrameView {
     JPanel mainPanel;
     JPanel pan1, pan2, pan3, ppan1, ppan2, pan4;
     JComboBox selector1;
-    JButton start, exi;
+    JButton start, exi, ex;
     JRadioButton g1= new JRadioButton(gamesStrings[0]);
     JRadioButton g2= new JRadioButton(gamesStrings[1]);
     JRadioButton g3= new JRadioButton(gamesStrings[2]);
@@ -22,7 +22,7 @@ public class MainFrameView {
         return 0;
     }
 
-    public MainFrameView() {
+    public void sMainFrameView() {
         String[] labelStrings = {"Wybierz typ gracza","Wybierz grę", "Wpisz imie", "Wpisz nazwisko", "Wprowadź ilosć powtozeń", "Wprowadź wpłaty"};
         String[] gamersStrings = { "Przedszkolak", "Uczeń", "Student"};
         start=new JButton("Start");
@@ -112,7 +112,13 @@ public class MainFrameView {
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        pan4 = new JPanel();
+        ex=new JButton("Back");
+
     }
 
-    //Listener gSelect;
+    public void startInfo(String n){
+        JOptionPane.showMessageDialog(null, n);
+    }
+
 }

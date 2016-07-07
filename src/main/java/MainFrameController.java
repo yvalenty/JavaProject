@@ -1,12 +1,16 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class MainFrameController {
     private MainFrame model;
     private MainFrameView view;
     Listener gSelect;
+    PrzedszkolakController pcontroller;
+    PrzedszkolakView pview;
+    UczenController ucontroller;
+    UczenView uview;
+    StudentController scontroller;
+    StudentView sview;
+    WindowListener wListen;
 
     public MainFrameController(MainFrame model, MainFrameView view){
         this.model=model;
@@ -15,6 +19,25 @@ public class MainFrameController {
 
     public void MainView(){
         gSelect=new Listener();
+        wListen=new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                pview.gameWindow.setVisible(false);
+                view.pan4.setVisible(false);
+                view.mainPanel.setVisible(true);
+                view.pan3.setVisible(true);
+                view.frame.setEnabled(true);
+                view.frame.setVisible(true);
+
+            }
+            @Override
+            public void windowOpened(WindowEvent e) {
+                view.frame.setEnabled(false);
+                view.frame.setVisible(false);
+            }
+
+
+        };
         view.g1.addActionListener(gSelect);
         view.g2.addActionListener(gSelect);
         view.g3.addActionListener(gSelect);
@@ -29,44 +52,113 @@ public class MainFrameController {
         //Start pressed
         view.start.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(model.getGamer()==0)
-                    model.Gamer=new Przedszkolak(model.getName(), model.getSurname());
-                if(model.getGamer()==1)
-                    model.Gamer=new Uczen(model.getName(), model.getSurname());
-                if(model.getGamer()==2)
-                    model.Gamer=new Student(model.getName(), model.getSurname());
                 try {
                     model.setName(view.imie.getText());
                     model.setSurname(view.naz.getText());
-                    model.setCounts(Integer.parseInt(view.rep.getText().trim()));
+                    model.setRepeats(Integer.parseInt(view.rep.getText().trim()));
                     model.setCharge(Double.parseDouble(view.wp.getText()));
-                    JOptionPane.showMessageDialog(null, "Zaczynamy grę\n");
-                    model.Gamer.startGame(model.getGame());
+                    if(model.getRepeats()==0) throw new Exception();//zakaz wprowadzenia 0 powtórzeń
+                    view.startInfo("Zaczynamy grę\n");
+                    if(model.getGamer()==0) {
+                        Przedszkolak prz = new Przedszkolak(model.getName(), model.getSurname());
+                        prz.repeats=model.getRepeats();
+                        prz.setResultsTable();
+                        model.Gamer = prz;
+                        pview=new PrzedszkolakView();
+                        pcontroller = new PrzedszkolakController(prz, pview);
+                        if(model.getGame()==0) {
+                            pview.gameCoin();
+                            pcontroller.gameCoin();
+                        }
+                        if(model.getGame()==3) {
+                            prz.gameXO();
+                            pview.gameXO();
+                            pcontroller.gameXO();
+                            pview.frameXO.addWindowListener(wListen);
+                        }
+                    }
+                    if(model.getGamer()==1) {
+                        Uczen ucz = new Uczen(model.getName(), model.getSurname());
+                        ucz.repeats=model.getRepeats();
+                        ucz.setResultsTable();
+                        model.Gamer = ucz;
+                        uview=new UczenView();
+                        ucontroller = new UczenController(ucz, uview);
+                        pview=uview;
+                        if (model.getGame() == 0) {
+                            uview.gameCoin();
+                            ucontroller.gameCoin();
+                        }
+                        if (model.getGame() == 1) {
+                            ucz.gameKNP();
+                            uview.gameKNP();
+                            ucontroller.gameKNP();
+                        }
+                        if(model.getGame()==3) {
+                            ucz.gameXO();
+                            uview.gameXO();
+                            ucontroller.gameXO();
+                            uview.frameXO.addWindowListener(wListen);
+                        }
+
+                    }
+                    if(model.getGamer()==2) {
+                        Student std = new Student(model.getName(), model.getSurname());
+                        std.repeats=model.getRepeats();
+                        std.setResultsTable();
+                        model.Gamer = std;
+                        sview=new StudentView();
+                        scontroller = new StudentController(std, sview);
+                        uview=sview;
+                        pview=uview;
+                        if (model.getGame() == 0) {
+                            sview.gameCoin();
+                            scontroller.gameCoin();
+                        }
+                        if (model.getGame() == 1) {
+                            std.gameKNP();
+                            sview.gameKNP();
+                            scontroller.gameKNP();
+                        }
+                        if (model.getGame() == 2) {
+                            std.gameDeer();
+                            sview.gameDeer();
+                            scontroller.gameDeer();
+                        }
+                        if(model.getGame()==3) {
+                            std.gameXO();
+                            sview.gameXO();
+                            scontroller.gameXO();
+                            sview.frameXO.addWindowListener(wListen);
+                        }
+                    }
+
+                    //model.Gamer.startGame(model.getGame());
                     view.mainPanel.setVisible(false);
                     view.pan3.setVisible(false);
-                    view.frame.add(model.Gamer.gameWindow);
-                    view.pan4 = new JPanel();
-                    JButton ex=new JButton("Back");
-                    view.pan4.add(ex);
-                    view.pan4.setBackground(Color.white);
-                    model.Gamer.gameWindow.add(view.pan4);
-                    ex.addActionListener(new ActionListener() {
+                    view.pan4.add(view.ex);
+                    view.frame.add(pview.gameWindow);
+                    pview.gameWindow.add(view.pan4);
+                    view.pan4.setVisible(true);
+                    view.ex.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
-                            model.Gamer.gameWindow.setVisible(false);
+                            pview.gameWindow.setVisible(false);
                             view.pan4.setVisible(false);
                             view.mainPanel.setVisible(true);
                             view.pan3.setVisible(true);
                         }
                     });
+
                 }
                 catch (Exception err){
-                    JOptionPane.showMessageDialog(null, "Wprowadź poprawne dane");
+                    view.startInfo("Wprowadź poprawne dane");
+                    System.out.print(err);
                 }
 
             }
         });
     }
-
+    
     public class Listener implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
@@ -82,7 +174,7 @@ public class MainFrameController {
                     view.g3.setEnabled(false);
                 }
                 if (view.selector1.getSelectedIndex() == 2) {
-                    model.setGamer(1);
+                    model.setGamer(2);
                     view.g2.setEnabled(true);
                     view.g3.setEnabled(true);
                 }

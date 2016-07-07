@@ -1,13 +1,10 @@
 public class MainFrame {
-    //Declaration of variables
     private int game=0, gamer;
-    private double gcounts, gcharge;
+    private double gcharge;
+    private int gcounts;
     private String gname, gsurname;
     private String[] gamesStrings = { "Wybieranie strony monety", "Kamień,nożyce, papier", "Polowanie na jelenie", "Krzyżyk i kółko"};
     Gracz Gamer;
-    public String getGamesStrings(int i){
-        return gamesStrings[i];
-    }
 
     public String getName(){
         return gname;
@@ -41,11 +38,11 @@ public class MainFrame {
         this.gamer=n;
     }
 
-    public double getCounts(){
+    public int getRepeats(){
         return gcounts;
     }
 
-    public void setCounts(int n){
+    public void setRepeats(int n){
         this.gcounts=n;
     }
 
@@ -57,7 +54,6 @@ public class MainFrame {
         this.gcharge=n;
     }
 
-    //constructor
     public MainFrame(){
         Gamer = null;
     }

@@ -1,5 +1,5 @@
 public interface Win {
-void congratulate();
+String congratulate();
 String wyplata();
-void remis();
+String remis();
 }

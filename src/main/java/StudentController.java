@@ -2,9 +2,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class StudentController extends UczenController {
-    private Student model;
-    private StudentView view;
-    public StudentController(Student smodel, StudentView sview) {
+    private Gracz model;
+    private GraczView view;
+    public StudentController(Gracz smodel, GraczView sview) {
         super(smodel, sview);
         this.model=smodel;
         this.view=sview;
@@ -12,9 +12,7 @@ public class StudentController extends UczenController {
 
     public void gameDeer(){
         abstract class buttonList implements ActionListener {}
-
         buttonList bListner;
-
         bListner=new buttonList() {
             int i=0;
             String op1, op2;
@@ -57,16 +55,10 @@ public class StudentController extends UczenController {
                     model.gcrecords[i][1]=1;
                     i++;
                 }
-                if (i == model.repeats) {
-                    for (int k = 0; k < model.repeats; k++) {
-                        System.out.println(model.gcrecords[k][0] + "   " + model.gcrecords[k][1]);
-                    }
-                }
-
                 if (i==model.repeats){
                     view.button1.setEnabled(false);
                     view.button2.setEnabled(false);
-                    model.takeWinner();
+                    view.showWinner(model.takeWinner());
                 }
 
             }

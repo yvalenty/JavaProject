@@ -3,7 +3,6 @@ public class MainFrame {
     private double gcharge;
     private int gcounts;
     private String gname, gsurname;
-    private String[] gamesStrings = { "Wybieranie strony monety", "Kamień,nożyce, papier", "Polowanie na jelenie", "Krzyżyk i kółko"};
     Gracz Gamer;
 
     public String getName(){

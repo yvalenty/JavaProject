@@ -1,16 +1,13 @@
 import java.util.Random;
 
 public class Przedszkolak extends Gracz {
-    int c1[]={0,1,2},c2[]={3,4,5},c3[]={6,7,8},c4[]={0,3,6},c5[]={1,4,7},c6[]={2,5,8},c7[]={0,4,8},c8[]={2,4,6};
-    int[][] winCombo = {c1,c2,c3,c4,c5,c6,c7,c8};
-    int[] gameArea ={0,0,0,0,0,0,0,0,0};
-    int gcmax=2, gcmin=1, selectgc1, selectgc2, repeats, freecell, gSelect, ret, cSelect;
-    boolean moveMaked, endGame;
-    int selectedWinCombo, playedGames;
+
     public Przedszkolak (String s, String ss) {
         name = s;
         surname=ss;
         allowedTime=2;
+        gcmax=2;
+        gcmin=1;
     }
     public void setResultsTable(){
         gcrecords=new int[repeats+1][2];
@@ -34,10 +31,9 @@ public class Przedszkolak extends Gracz {
         int com = 0;
         int randomTry[];
         randomTry = new int[9];
-        int tryN = 0;
         int flag = 0;
         int len = 0;
-        int enemyMayWinFlag, compMayWinFlag = 0;
+        int enemyMayWinFlag;
         //check try not to lose strategy
         if (!moveMaked){
             for (int i = 0; i < 8; i++) {
@@ -71,11 +67,9 @@ public class Przedszkolak extends Gracz {
                         for (int k = 0; k < 9; k++) {
                             if (randomTry[k] == com)
                                 break;
-                            else {
-                                flag = 1;
-                                randomTry[len] = com;
-                                len++;
-                            }
+                            flag = 1;
+                            randomTry[len] = com;
+                            len++;
                         }
                     }
                     selectedWinCombo=com;
@@ -102,6 +96,7 @@ public class Przedszkolak extends Gracz {
                 else
                     selectedWinCombo=10;
                 flag=0;
+                //Strategia "Remis. Niema o czym mysleć"
                 if(len>8 &&  !moveMaked){
                     int flag2=0;
                     while (flag2==0){
@@ -137,19 +132,19 @@ public class Przedszkolak extends Gracz {
     }
 
     public String remis() {
-        return ("Przedszkolak");
+        return ("Przedszkolak. Remis");
     }
 
     @Override
     public String niewyplata() {
         payment= gcrecords[repeats][1]*payment;
-        return("Przeciwnik dostaje " + payment);
+        return("Przeciwnik dostaje: " + payment);
     }
 
     @Override
     public String wyplata() {
         payment= gcrecords[repeats][0]*payment;
-        return("Dostajesz " + payment);
+        return("Dostajesz: " + payment);
     }
     
 }

@@ -12,9 +12,10 @@ public class Singleton {
     private Singleton() {
     }
 
-    protected static void demoMethod( ) throws IOException {
+    protected static void playMusic( ) throws IOException {
         try {
-            File soundFile = new File("src/background.wav");
+
+            File soundFile = new File("src/main/resources/background.wav");
             AudioInputStream ais = AudioSystem.getAudioInputStream(soundFile);
             Clip clip = AudioSystem.getClip();
             clip.open(ais);
@@ -22,7 +23,15 @@ public class Singleton {
             clip.start();
 
 
-        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException exc) {
+        } catch (IOException exc) {
+            exc.printStackTrace();
+        }
+
+        catch (UnsupportedAudioFileException exc) {
+            exc.printStackTrace();
+        }
+
+        catch (LineUnavailableException exc) {
             exc.printStackTrace();
         }
     }

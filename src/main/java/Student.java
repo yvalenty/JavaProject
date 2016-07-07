@@ -2,9 +2,9 @@ public class Student extends Uczen {
     
     public Student(String s, String ss) {
         super(s, ss);
-        allowedTime=6;
+        allowedTime=4;
     }
-    
+
     public void gameDeer(){
         gcrecords =new int[repeats+1][2];
         gcmax=2;

@@ -14,14 +14,6 @@ public class MainFrameView {
     JRadioButton g4= new JRadioButton(gamesStrings[3]);
     JFormattedTextField imie, naz, rep, wp;
 
-    public static int act_deact(int s){
-        if (s==0)
-            frame.setVisible(false);
-        else
-            frame.setVisible(true);
-        return 0;
-    }
-
     public void sMainFrameView() {
         String[] labelStrings = {"Wybierz typ gracza","Wybierz grę", "Wpisz imie", "Wpisz nazwisko", "Wprowadź ilosć powtozeń", "Wprowadź wpłaty"};
         String[] gamersStrings = { "Przedszkolak", "Uczeń", "Student"};
@@ -45,7 +37,6 @@ public class MainFrameView {
         ppan2.setAlignmentX(Component.RIGHT_ALIGNMENT);
         pan1.setAlignmentX(Component.CENTER_ALIGNMENT);
         pan2.setLayout(new BoxLayout(pan2, BoxLayout.Y_AXIS));
-
 
         ButtonGroup bgroup = new ButtonGroup();
         bgroup.add(g1);
@@ -71,7 +62,6 @@ public class MainFrameView {
                     ppan1.add(selector1);
                     break;
                 case 1:
-                    //gameArea.add(selector2);
                     ppan2.add(g1);
                     ppan2.add(g2);
                     ppan2.add(g3);
@@ -93,7 +83,6 @@ public class MainFrameView {
                     pan2.add(wp);
                     break;
             }
-
         }
         pan1.add(ppan1);
         pan1.add(ppan2);
@@ -113,6 +102,7 @@ public class MainFrameView {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         pan4 = new JPanel();
+        pan4.setBackground(Color.WHITE);
         ex=new JButton("Back");
 
     }

@@ -3,20 +3,14 @@ import java.awt.*;
 
 
 public class PrzedszkolakView extends GraczView {
-    //Elementy dla gameCoin
     JPanel mpan, pan1, pan2, pan3, pan4;
     ImageIcon imageIcon, imageIcon2;
     JLabel picLabel, picLabel2;
-    JButton button1, button2;
-    JLabel selN1, selN2, lw;
-    //Elementy dla dla gameXO
-    JButton[] buttons;
-    JFrame frameXO;
     JPanel mainPanel;
 
     public void gameCoin(){
-        imageIcon = new ImageIcon(new ImageIcon("src/u.jpg").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
-        imageIcon2 = new ImageIcon(new ImageIcon("src/u2.jpg").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+        imageIcon = new ImageIcon(new ImageIcon("src/main/resources/u.jpg").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+        imageIcon2 = new ImageIcon(new ImageIcon("src/main/resources/u2.jpg").getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
         picLabel = new JLabel();
         picLabel2 = new JLabel();
         button1=new JButton("Orzeł");
@@ -69,6 +63,10 @@ public class PrzedszkolakView extends GraczView {
     }
 
     public void endGame(String n){
+        JOptionPane.showMessageDialog(null, n);
+    }
+
+    public void showWinner(String n){
         JOptionPane.showMessageDialog(null, n);
     }
 }

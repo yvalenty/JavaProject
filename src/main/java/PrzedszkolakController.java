@@ -1,17 +1,16 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class PrzedszkolakController extends GraczController {
-    private Przedszkolak model;
-    private PrzedszkolakView view;
+    private Gracz model;
+    private GraczView view;
 
-    public PrzedszkolakController(Przedszkolak pmodel, PrzedszkolakView pview) {
+    public PrzedszkolakController(Gracz pmodel, GraczView pview) {
         this.model=pmodel;
         this.view=pview;
     }
 
     public void gameCoin(){
         abstract class buttonList implements ActionListener{}
-
         buttonList bListner;
         bListner=new buttonList() {
             int i=0;
@@ -38,19 +37,19 @@ public class PrzedszkolakController extends GraczController {
                     model.gcrecords[i][0] = 1;
                     model.gcrecords[i][1] = 0;
                     i++;
-                } else {
+                }
+                else {
                     view.lw.setText("Przegrałeś");
                     model.gcrecords[i][0] = 0;
                     model.gcrecords[i][1] = 1;
                     i++;
-
                 }
 
 
                 if (i==model.repeats){
                     view.button1.setEnabled(false);
                     view.button2.setEnabled(false);
-                    //model.takeWinner();
+                    view.showWinner(model.takeWinner());
                 }
             }
         };
@@ -132,21 +131,24 @@ public class PrzedszkolakController extends GraczController {
                             restart();
                         break;
                     }
-                    if (model.freecell == 0) {
-                        for (int k = 0; k < 9; k++) {
-                            view.buttons[k].setEnabled(false);
-                        }
-                        model.endGame = true;
-                        view.endGame("Remis");
-                        model.gcrecords[model.playedGames][0] = 0;
-                        model.gcrecords[model.playedGames][1] = 0;
-                        model.playedGames++;
-                        if(model.playedGames<model.repeats)
-                            restart();
-                        break;
-                    }
                 }
+
             }
+        }
+        if (model.freecell == 0 && !model.endGame) {
+            for (int k = 0; k < 9; k++) {
+                view.buttons[k].setEnabled(false);
+            }
+            model.endGame = true;
+            view.endGame("Remis");
+            model.gcrecords[model.playedGames][0] = 0;
+            model.gcrecords[model.playedGames][1] = 0;
+            model.playedGames++;
+            if(model.playedGames<model.repeats)
+                restart();
+        }
+        if (model.playedGames==model.repeats){
+            view.showWinner(model.takeWinner());
         }
     }
 

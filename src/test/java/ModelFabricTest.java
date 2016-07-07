@@ -1,7 +1,6 @@
 import com.gamemaschine.*;
 import org.junit.Test;
 import static junit.framework.Assert.*;
-
 public class ModelFabricTest {
     @Test
     public void testFabric() throws Exception{

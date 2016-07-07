@@ -6,11 +6,9 @@ import java.net.URL;
 
 public class Singleton {
     private static Singleton ourInstance = new Singleton();
-
     public static Singleton getInstance() {
         return ourInstance;
     }
-
     private Singleton() {
     }
 
@@ -22,16 +20,13 @@ public class Singleton {
             clip.open(ais);
             clip.setFramePosition(0);
             clip.start();
-
-
-        } catch (IOException exc) {
+        }
+        catch (IOException exc) {
             exc.printStackTrace();
         }
-
         catch (UnsupportedAudioFileException exc) {
             exc.printStackTrace();
         }
-
         catch (LineUnavailableException exc) {
             exc.printStackTrace();
         }

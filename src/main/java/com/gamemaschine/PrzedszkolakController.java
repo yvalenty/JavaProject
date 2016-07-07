@@ -2,6 +2,7 @@ package com.gamemaschine;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 public class PrzedszkolakController extends GraczController {
     private Gracz model;
     private GraczView view;
@@ -46,8 +47,6 @@ public class PrzedszkolakController extends GraczController {
                     model.gcrecords[i][1] = 1;
                     i++;
                 }
-
-
                 if (i==model.repeats){
                     view.button1.setEnabled(false);
                     view.button2.setEnabled(false);
@@ -83,7 +82,6 @@ public class PrzedszkolakController extends GraczController {
                     }
                 }
             }
-
         };
         for (int i=0; i<9; i++){
             view.buttons[i].addActionListener(bListner);

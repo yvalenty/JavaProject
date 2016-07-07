@@ -148,5 +148,4 @@ public class Przedszkolak extends Gracz {
         payment= gcrecords[repeats][0]*payment;
         return("Dostajesz: " + payment);
     }
-    
 }

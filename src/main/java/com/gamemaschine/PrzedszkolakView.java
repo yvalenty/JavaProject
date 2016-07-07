@@ -3,7 +3,6 @@ package com.gamemaschine;
 import javax.swing.*;
 import java.awt.*;
 
-
 public class PrzedszkolakView extends GraczView {
     JPanel mpan, pan1, pan2, pan3, pan4;
     ImageIcon imageIcon, imageIcon2;
@@ -57,7 +56,6 @@ public class PrzedszkolakView extends GraczView {
         frameXO.setResizable(false);
         frameXO.setLocationRelativeTo(null);
         frameXO.setVisible(true);
-
         for (int i=0; i<9; i++){
             buttons[i] = new JButton(" ");
             mainPanel.add(buttons[i]);

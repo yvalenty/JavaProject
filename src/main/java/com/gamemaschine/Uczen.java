@@ -17,7 +17,6 @@ public class Uczen extends Przedszkolak {
     public String getTyp() {
         return ("Uczeń");
     }
-
     @Override
     public String laugh() {
         return("Uczeń. Przegrałeś");
